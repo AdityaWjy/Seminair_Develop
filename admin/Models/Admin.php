@@ -1,0 +1,33 @@
+<?php
+class Admin
+{
+    private $db;
+
+    public function __construct($db)
+    {
+        $this->db = $db;
+    }
+
+    public function getAdminByUsername($username)
+    {
+        $query = "SELECT * FROM admin WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function getTotalAdmins()
+    {
+        $query = "SELECT COUNT(*) as total_admin FROM admin";
+        $result = $this->db->query($query);
+        return $result->fetch_assoc()['total_admin'] ?? 0;
+    }
+
+    public function getAllAdmins()
+    {
+        $query = "SELECT * FROM admin";
+        $result = $this->db->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
