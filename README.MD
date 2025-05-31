@@ -1,10 +1,4 @@
-UTS PEMROGRAMAN WEB
-
-Nama: Aditya Firmansyah Wijaya
-NPM: 23081010083
-
-Nama: Luthfiyana Mahrurin Abadi
-NPM: 23081010135
+UAS PEMROGRAMAN WEB
 
 Link Hosting:
-https://fyinotes.me/
+https://seminair.fyinotes.me/
