@@ -47,9 +47,6 @@ if ($id_event) {
     <title>Detail Event - Seminair</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
-
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
@@ -193,7 +190,7 @@ if ($id_event) {
 
 
 
-                        <a href="../views/events.php    " class="btn btn-secondary">Kembali</a>
+                        <a href="../views/events.php" class="btn btn-secondary">Kembali</a>
                     </div>
                 </div>
 
@@ -202,28 +199,25 @@ if ($id_event) {
 
         <div class="container rounded mb-5 py-5 px-3 mt-5" style="background-color:rgb(17, 27, 49) ;">
             <h3 class="mb-4">Daftar Peserta</h3>
-
             <div class="table-responsive">
                 <table id="example" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Nama</th>
-                            <th class="d-none d-xl-block">Email</th>
+                            <th>Email</th>
                             <th>Instansi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($value = mysqli_fetch_assoc($queryPeserta)) : ?>
                             <tr>
-                                <td><?= htmlspecialchars($value['nama']) ?></td>
-                                <td class="d-none d-xl-block"><?= htmlspecialchars($value['email']) ?></td>
-                                <td><?= htmlspecialchars($value['instansi']) ?></td>
+                                <td class="text-truncate"><?= htmlspecialchars($value['nama']) ?></td>
+                                <td class="text-truncate"><?= htmlspecialchars($value['email']) ?></td>
+                                <td class="text-truncate"><?= htmlspecialchars($value['instansi']) ?></td>
                             </tr>
                         <?php endwhile; ?>
-
                     </tbody>
                 </table>
-
             </div>
 
         </div>
@@ -234,9 +228,6 @@ if ($id_event) {
     <!-- Script -->
 
     <script src="/js/script.js"></script>
-
-
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -248,8 +239,16 @@ if ($id_event) {
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 
     <script>
-        new DataTable('#example', {
-            responsive: true
+        $(document).ready(function() {
+            // Pastikan tabel memiliki cukup baris untuk memicu paginasi
+            new DataTable('#example', {
+                responsive: false,
+                pageLength: 5, // Tampilkan 5 baris per halaman
+                lengthMenu: [10], // Opsi jumlah baris yang bisa dipilih
+                paging: true, // Eksplisit aktifkan paginasi (meskipun defaultnya true)
+                info: true, // Tampilkan informasi "Showing X of Y entries"
+                searching: true // Aktifkan kolom pencarian
+            });
         });
         // scroll progress
         window.onscroll = function() {
@@ -393,6 +392,14 @@ if ($id_event) {
 
     .container.mt-5 {
         margin-top: 0 !important;
+    }
+
+    .text-truncate {
+        max-width: 10px;
+        /* Kamu bisa sesuaikan lebar ini */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>
 

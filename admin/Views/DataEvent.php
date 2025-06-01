@@ -27,11 +27,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        /* Custom CSS untuk Sidebar dan Layout */
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f8f9fa;
-            /* Latar belakang halaman dashboard */
         }
 
         #wrapper {
@@ -39,15 +37,14 @@
             min-height: 100vh;
         }
 
-        /* Top Navbar for toggle button */
+
         .navbar-custom {
             background-color: #ffffff;
-            /* Latar belakang navbar putih */
             border-bottom: 1px solid #e0e0e0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             padding: 10px 20px;
             margin-bottom: 20px;
-            /* Jarak antara navbar dan konten */
+
         }
 
 
@@ -58,13 +55,20 @@
 
         .logout-link {
             color: #dc3545;
-            /* Merah untuk logout */
             font-weight: 500;
             text-decoration: none;
         }
 
         .logout-link:hover {
             text-decoration: underline;
+        }
+
+        .btn-edit-delete {
+            width: 80px;
+            height: 30px;
+            padding: 0;
+            font-size: 14px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -103,7 +107,7 @@
                                 <th>Kategori</th>
                                 <th>Nama</th>
                                 <th>Gambar</th>
-                                <th>Tanggal & Waktu</th>
+                                <th>Tanggal</th>
                                 <th>Lokasi</th>
                                 <th>Penyelenggara</th>
                                 <th>Deskripsi</th>
@@ -117,20 +121,27 @@
                                 <?php foreach ($events as $event) : ?>
                                     <tr>
                                         <td><?= htmlspecialchars($event['kategori_event']) ?></td>
-                                        <td><?= htmlspecialchars($event['nama_event']) ?></td>
+                                        <td class="text-capitalize text-truncate" style="max-width: 150px; white-space: nowrap;">
+                                            <?= htmlspecialchars($event['nama_event']) ?>
+                                        </td>
                                         <td>
                                             <img src="/assets/img/events/<?= htmlspecialchars($event['gambar_event']) ?>" width="100" height="auto" alt="Gambar Event">
                                         </td>
-                                        <td class="text-capitalize"><?= htmlspecialchars($event['tgl_event']) ?></td>
+                                        <td class="text-capitalize">
+                                            <?= date('m/d/Y H:i:s', strtotime($event['tgl_event'])) ?>
+                                        </td>
                                         <td class="text-capitalize"><?= htmlspecialchars($event['lokasi_event']) ?></td>
                                         <td class="text-capitalize"><?= htmlspecialchars($event['penyelenggara_event']) ?></td>
-                                        <td class="text-capitalize"><?= htmlspecialchars($event['deskripsi_event']) ?></td>
+                                        <td class="text-capitalize text-truncate" style="max-width: 150px; white-space: nowrap;">
+                                            <?= htmlspecialchars($event['deskripsi_event']) ?>
+                                        </td>
                                         <td class="text-capitalize"><?= htmlspecialchars($event['tipe_event']) ?></td>
                                         <td class="text-capitalize"><?= htmlspecialchars($event['harga_event']) ?></td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editEventModal<?= $event['id_event'] ?>">Edit</button>
+                                            <button class="btn btn-warning btn-sm btn-edit-delete" data-bs-toggle="modal" data-bs-target="#editEventModal<?= $event['id_event'] ?>">Edit</button>
 
-                                            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteEventModal<?= $event['id_event'] ?>">Delete</button>
+                                            <button class="btn btn-danger btn-sm btn-edit-delete" data-bs-toggle="modal" data-bs-target="#deleteEventModal<?= $event['id_event'] ?>">Delete</button>
+
                                         </td>
                                     </tr>
 
@@ -186,12 +197,7 @@
 
     <script>
         new DataTable('#event', {
-            responsive: true,
-            responsive: true,
-            "ordering": true,
-            "searching": true,
-            "paging": true,
-            "info": true
+
         });
     </script>
 </body>
