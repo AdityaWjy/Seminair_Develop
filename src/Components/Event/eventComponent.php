@@ -45,7 +45,7 @@ while ($value = mysqli_fetch_assoc($query)) {
                 <span class="badge text-capitalize bg-' . ($type_event == "gratis" ? "primary" : "danger") . ' event-badge">' . $type_event . '</span>
             </div>
             <div class="card-body d-flex flex-column">
-                <h5 class="fw-semibold mb-1">' . $event_name . '</h5>
+                <h5 class="fw-semibold mb-1">'  . $event_name . '</h5>
                 <p class="text-white small mb-3">' . $organizer_event . '</p>
                 <ul class="list-unstyled small text-white mb-3 ">
                     <li class="mb-2"><i class="bi bi-geo-alt-fill text-primary me-1"></i>' . $event_location . '</li>

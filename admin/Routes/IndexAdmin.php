@@ -1,3 +1,5 @@
+<!-- Routing dashboard admin -->
+
 <?php
 $db = require_once '../../config.php';
 
@@ -11,9 +13,9 @@ $EventController = new EventController($db);
 
 switch ($page) {
     case 'dashboard':
-        $totalAdmins = $AdminController->getTotalAdmins();
-        $totalEvents = $EventController->getTotalEvents();
         $totalCategories = $EventController->getTotalCategories();
+        $totalEvents = $EventController->getTotalEvents();
+        $totalAdmins = $AdminController->getTotalAdmins();
         include '../Views/Dashboard.php';
         break;
 
@@ -33,8 +35,6 @@ switch ($page) {
                     } else {
                         echo "Gagal menghapus event.";
                     }
-                } else {
-                    echo "ID event tidak valid untuk dihapus.";
                 }
             } elseif (isset($_POST['id_event']) && !empty($_POST['id_event'])) {
                 // Logika untuk UPDATE
@@ -129,7 +129,7 @@ switch ($page) {
         break;
 
     case 'datapeserta':
-        // Ini adalah tempat logic pengambilan data untuk datapeserta
+        // logic pengambilan data untuk datapeserta
         $selected_event_id = isset($_GET['filter_event']) && $_GET['filter_event'] !== ''
             ? (int) $_GET['filter_event']
             : null;

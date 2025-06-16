@@ -8,6 +8,8 @@ class Admin
         $this->db = $db;
     }
 
+    // Get admin by username
+
     public function getAdminByUsername($username)
     {
         $query = "SELECT * FROM admin WHERE username = ?";
@@ -17,12 +19,16 @@ class Admin
         return $stmt->get_result()->fetch_assoc();
     }
 
+    // Get total admins
+
     public function getTotalAdmins()
     {
         $query = "SELECT COUNT(*) as total_admin FROM admin";
         $result = $this->db->query($query);
         return $result->fetch_assoc()['total_admin'] ?? 0;
     }
+
+    // Get all admins
 
     public function getAllAdmins()
     {

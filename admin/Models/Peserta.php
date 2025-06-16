@@ -22,11 +22,11 @@ class Peserta
                     p.id_peserta,
                     u.nama_pengguna AS nama_peserta,
                     u.email_pengguna AS email_peserta,
-                    u.instansi_pengguna AS instansi_peserta, -- Asumsi kolom ini ada di tabel 'pengguna'
+                    u.instansi_pengguna AS instansi_peserta, 
                     e.nama_event,
                     p.status AS status_pembayaran_peserta
                 FROM
-                    daftar_peserta p  -- <--- KOREKSI: Nama tabel 'peserta' diganti menjadi 'daftar_peserta'
+                    daftar_peserta p  
                 JOIN
                     pengguna u ON p.id_pengguna = u.id_pengguna
                 JOIN
@@ -43,13 +43,12 @@ class Peserta
             $result = $stmt->get_result();
         } else {
             // Baris 45 akan berada di sini jika tanpa filter ($id_event === null)
-            $result = $this->db->query($sql); // <--- Baris ini yang menyebabkan error "Table 'seminair.peserta' doesn't exist"
+            $result = $this->db->query($sql);
         }
 
         if ($result === false) {
-            // Untuk debugging, bisa tambahkan error_log atau echo $this->db->error;
             error_log("Query failed in getFilteredPeserta: " . $this->db->error);
-            return []; // Mengembalikan array kosong jika query gagal
+            return [];
         }
 
         return $result->fetch_all(MYSQLI_ASSOC);

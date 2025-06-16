@@ -101,6 +101,8 @@ function beautify($text)
                             <form method="GET" class="d-flex align-items-center gap-2">
                                 <input type="hidden" name="page" value="datapeserta"> <select class="form-select form-select-md mb-3" style="width: 300px;" name="filter_event" id="filterEventSelect">
                                     <option value="">Filter Event (Semua Event)</option>
+
+                                    <!-- get all event in indexadmin.php -->
                                     <?php foreach ($all_events as $event_option): ?>
                                         <option value="<?= htmlspecialchars($event_option['id_event']) ?>"
                                             <?= (isset($selected_event_id) && $selected_event_id == $event_option['id_event']) ? 'selected' : '' ?>>
@@ -164,11 +166,9 @@ function beautify($text)
     <script>
         new DataTable('#pesertaTable', {
             responsive: true,
-            responsive: true,
-            "ordering": true,
-            "searching": true,
-            "paging": true,
-            "info": true
+            ordering: true,
+            searching: true,
+            paging: true,
         });
     </script>
 

@@ -1,7 +1,5 @@
 <?php session_start(); ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +21,7 @@
 </head>
 
 <body>
-
-    <!-- error message -->
+    <!-- show alert status user register  -->
     <?php if (!empty($_SESSION['error'])): ?>
         <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['error']) ?></div>
         <?php unset($_SESSION['error']); ?>

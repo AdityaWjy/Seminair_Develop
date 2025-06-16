@@ -20,7 +20,7 @@ class Pengguna
         return $stmt->get_result();
     }
 
-    // method create user
+    // method create user register
     public function create($nama, $email, $instansi, $password)
     {
         $stmt = $this->db->prepare("INSERT INTO pengguna (nama_pengguna, email_pengguna, instansi_pengguna, password_pengguna) VALUES (?, ?, ?, ?)");

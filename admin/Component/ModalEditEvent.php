@@ -1,4 +1,4 @@
-    <div class="modal fade" id="editEventModal<?= $event['id_event'] ?>" tabindex="-1" aria-labelledby="editEventModalLabel<?= $event['id_event'] ?>" aria-hidden="true">
+    <div class="modal fade" id="editEventModal<?= $event['id_event'] ?>" tabindex="-1" aria-labelledby="editEventModalLabel<?= $event['id_event'] ?>" aria-hidden="false">
         <div class="modal-dialog">
             <form action="../Routes/IndexAdmin.php?page=dataevent" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id_event" value="<?= $event['id_event'] ?>">

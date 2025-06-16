@@ -22,6 +22,7 @@
     <div class="container d-flex align-items-center justify-content-center min-vh-100">
         <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
             <h2 class="text-center mb-4">Login Seminair</h2>
+            <!-- include action login controller to give user access  -->
             <form action="../Controller/LoginController.php" method="POST">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>

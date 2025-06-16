@@ -42,8 +42,10 @@
             <h1 class="display-5 fw-bold mb-3">Temukan Seminar & Webinar Terbaik</h1>
             <p class="lead mb-4">Tingkatkan pengetahuanmu bersama para ahli dari berbagai bidang</p>
 
-            <!-- Search input moved here -->
+            <!-- Search input  -->
             <div class="input-group mx-auto w-75 shadow-sm" style="max-width: 600px;">
+
+                <!-- call search event js function -->
                 <input type="text" id="searchInput" class="form-control py-2 px-3 border-0" placeholder="Cari seminar atau webinar..." oninput="searchEvent()">
                 <span class="input-group-text bg-primary text-white border-0">
                     <i class="bi bi-search"></i>

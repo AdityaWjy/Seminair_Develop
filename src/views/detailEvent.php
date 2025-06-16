@@ -197,10 +197,11 @@ if ($id_event) {
             <?php endif; ?>
         </div>
 
+        <!--  Tabel Daftar peserta -->
         <div class="container rounded mb-5 py-5 px-3 mt-5" style="background-color:rgb(17, 27, 49) ;">
             <h3 class="mb-4">Daftar Peserta</h3>
             <div class="table-responsive">
-                <table id="example" class="table table-striped" style="width:100%">
+                <table id="daftarPeserta" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Nama</th>
@@ -209,17 +210,16 @@ if ($id_event) {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($value = mysqli_fetch_assoc($queryPeserta)) : ?>
+                        <?php while ($Data = mysqli_fetch_assoc($queryPeserta)) : ?>
                             <tr>
-                                <td class="text-truncate"><?= htmlspecialchars($value['nama']) ?></td>
-                                <td class="text-truncate"><?= htmlspecialchars($value['email']) ?></td>
-                                <td class="text-truncate"><?= htmlspecialchars($value['instansi']) ?></td>
+                                <td class="text-truncate"><?= htmlspecialchars($Data['nama']) ?></td>
+                                <td class="text-truncate"><?= htmlspecialchars($Data['email']) ?></td>
+                                <td class="text-truncate"><?= htmlspecialchars($Data['instansi']) ?></td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 
@@ -239,15 +239,14 @@ if ($id_event) {
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 
     <script>
+        // datatable pagination
         $(document).ready(function() {
-            // Pastikan tabel memiliki cukup baris untuk memicu paginasi
-            new DataTable('#example', {
-                responsive: false,
-                pageLength: 5, // Tampilkan 5 baris per halaman
-                lengthMenu: [10], // Opsi jumlah baris yang bisa dipilih
-                paging: true, // Eksplisit aktifkan paginasi (meskipun defaultnya true)
-                info: true, // Tampilkan informasi "Showing X of Y entries"
-                searching: true // Aktifkan kolom pencarian
+            new DataTable('#daftarPeserta', {
+                pageLength: 5,
+                lengthMenu: [10],
+                paging: true,
+                info: true,
+                searching: true
             });
         });
         // scroll progress

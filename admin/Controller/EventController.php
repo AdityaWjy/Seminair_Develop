@@ -74,7 +74,7 @@ class EventController
         if ($success && $gambar_event) {
             $imgPath = __DIR__ . '/../../assets/img/events/' . $gambar_event;
             if (file_exists($imgPath)) {
-                unlink($imgPath); // Hapus file gambar fisik
+                unlink($imgPath); // Hapus file gambar 
             }
         }
         return $success;

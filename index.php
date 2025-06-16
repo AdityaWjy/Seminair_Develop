@@ -17,7 +17,7 @@ include("config.php");
         href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Favicon -->
     <link rel="icon" href="/assets/icon/seminair.png" type="image/x-icon" />
@@ -122,8 +122,7 @@ include("config.php");
     <?php include './src/Components/footer.php'; ?>
 
     <!-- Bootstrap JS -->
-    <!-- <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <!-- animation -->

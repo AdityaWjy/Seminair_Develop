@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $id_pengguna = $_SESSION['user']['id']; // ambil dari session yang benar
+    $id_pengguna = $_SESSION['user']['id'];
 
     // Cek apakah sudah terdaftar
     $checkQuery = mysqli_query($db, "SELECT * FROM daftar_peserta WHERE id_event = '$id_event' AND id_pengguna = '$id_pengguna'");
@@ -26,8 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Set status pembayaran
     $eventData = mysqli_fetch_assoc($eventQuery);
+
+    // jika event gratis maka status peserta terbayar, jika tidak maka belum terbayar
     $status = ($eventData['tipe_event'] === 'gratis') ? 'terbayar' : 'belum_terbayar';
+
+    // logic payment
 
     // Simpan pendaftaran
     $sql = "INSERT INTO daftar_peserta (id_event, id_pengguna, status)

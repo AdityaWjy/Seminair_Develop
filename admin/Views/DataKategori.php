@@ -26,47 +26,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <style>
-        /* Custom CSS untuk Sidebar dan Layout */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f8f9fa;
-            /* Latar belakang halaman dashboard */
-        }
 
-        #wrapper {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Top Navbar for toggle button */
-        .navbar-custom {
-            background-color: #ffffff;
-            /* Latar belakang navbar putih */
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            /* Jarak antara navbar dan konten */
-        }
-
-
-        .user-info {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .logout-link {
-            color: #dc3545;
-            /* Merah untuk logout */
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .logout-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
@@ -90,7 +50,7 @@
 
 
                 <div class="table-responsive shadow px-2 mb-5 bg-body rounded">
-                    <table id="example" class="table table-striped " style="width:100%">
+                    <table class="table table-striped " style="width:100%">
                         <div class="d-flex align-items-center justify-content-between">
                             <p class="ms-2 fw-semibold mt-3">Tabel Daftar Kategori</p>
 
@@ -119,10 +79,6 @@
                                 </tr>
                             <?php endif; ?>
                         </tbody>
-
-
-
-
                     </table>
                 </div>
             </div>
@@ -139,11 +95,48 @@
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 
-    <script>
-        new DataTable('#event', {
-            responsive: true
-        });
-    </script>
 </body>
+
+<style>
+    /* Custom CSS untuk Sidebar dan Layout */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f8f9fa;
+        /* Latar belakang halaman dashboard */
+    }
+
+    #wrapper {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* Top Navbar for toggle button */
+    .navbar-custom {
+        background-color: #ffffff;
+        /* Latar belakang navbar putih */
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        /* Jarak antara navbar dan konten */
+    }
+
+
+    .user-info {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .logout-link {
+        color: #dc3545;
+        /* Merah untuk logout */
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .logout-link:hover {
+        text-decoration: underline;
+    }
+</style>
 
 </html>

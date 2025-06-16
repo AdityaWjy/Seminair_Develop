@@ -26,51 +26,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f8f9fa;
-        }
 
-        #wrapper {
-            display: flex;
-            min-height: 100vh;
-        }
-
-
-        .navbar-custom {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            padding: 10px 20px;
-            margin-bottom: 20px;
-
-        }
-
-
-        .user-info {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .logout-link {
-            color: #dc3545;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .logout-link:hover {
-            text-decoration: underline;
-        }
-
-        .btn-edit-delete {
-            width: 80px;
-            height: 30px;
-            padding: 0;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-    </style>
 </head>
 
 <body>
@@ -91,14 +47,12 @@
             <div class="container-fluid">
                 <h1 class="mt-4">Data Event</h1>
                 <p>Ini adalah area data event Anda. Anda bisa menambahkan, mengedit, menghapus data event di sini.</p>
-
-
                 <div class="table-responsive shadow px-3 py-2 mb-5 bg-body rounded">
                     <table id="event" class="table table-striped " style="width:100%">
                         <div class="d-flex align-items-center justify-content-between">
                             <p class="ms-2 fw-semibold mt-3">Tabel Daftar Event</p>
+                            <!-- Tambah event -->
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahEventModal">Tambah Event</button>
-
                             <?php include '../Component/ModalAddEvent.php' ?>
                         </div>
 
@@ -138,39 +92,22 @@
                                         <td class="text-capitalize"><?= htmlspecialchars($event['tipe_event']) ?></td>
                                         <td class="text-capitalize"><?= htmlspecialchars($event['harga_event']) ?></td>
                                         <td>
+
+                                            <!-- edit button -->
                                             <button class="btn btn-warning btn-sm btn-edit-delete" data-bs-toggle="modal" data-bs-target="#editEventModal<?= $event['id_event'] ?>">Edit</button>
 
+                                            <!-- delete button -->
                                             <button class="btn btn-danger btn-sm btn-edit-delete" data-bs-toggle="modal" data-bs-target="#deleteEventModal<?= $event['id_event'] ?>">Delete</button>
 
                                         </td>
                                     </tr>
 
-
                                     <!-- Modal Edit Event -->
                                     <?php include '../Component/ModalEditEvent.php' ?>
+                                    <!-- Modal Delete Event -->
+                                    <?php include '../Component/ModalDeleteEvent.php' ?>
 
-                                    <div class="modal fade" id="deleteEventModal<?= $event['id_event'] ?>" tabindex="-1" aria-labelledby="deleteEventModalLabel<?= $event['id_event'] ?>" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteEventModalLabel<?= $event['id_event'] ?>">Konfirmasi Hapus Event</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Apakah Anda yakin ingin menghapus event "<strong><?= htmlspecialchars($event['nama_event']) ?></strong>"?
-                                                    Tindakan ini tidak dapat dibatalkan.
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <form action="../Routes/IndexAdmin.php?page=dataevent" method="POST" style="display: inline;">
-                                                        <input type="hidden" name="action" value="delete">
-                                                        <input type="hidden" name="id_event_to_delete" value="<?= $event['id_event'] ?>">
-                                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                 <?php endforeach; ?>
                             <?php else : ?>
@@ -198,8 +135,60 @@
     <script>
         new DataTable('#event', {
 
+            // pageLength: 5,
+            // lengthMenu: [10],
+            // paging: true,
+            // info: true,
+            // searching: true
+
         });
     </script>
 </body>
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    #wrapper {
+        display: flex;
+        min-height: 100vh;
+    }
+
+
+    .navbar-custom {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 10px 20px;
+        margin-bottom: 20px;
+
+    }
+
+
+    .user-info {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .logout-link {
+        color: #dc3545;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .logout-link:hover {
+        text-decoration: underline;
+    }
+
+    .btn-edit-delete {
+        width: 80px;
+        height: 30px;
+        padding: 0;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+</style>
 
 </html>

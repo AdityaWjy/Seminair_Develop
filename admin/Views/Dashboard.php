@@ -1,7 +1,4 @@
-<!-- component -->
 <?php
-
-
 if (!isset($_SESSION['admin'])) {
     header("Location: ../Views/Login.php");
     exit;
@@ -33,51 +30,9 @@ include_once '../Component/StartCard.php';
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <style>
-        /* Custom CSS untuk Sidebar dan Layout */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f8f9fa;
-            /* Latar belakang halaman dashboard */
-        }
-
-        #wrapper {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Top Navbar for toggle button */
-        .navbar-custom {
-            background-color: #ffffff;
-            /* Latar belakang navbar putih */
-            border-bottom: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            /* Jarak antara navbar dan konten */
-        }
-
-
-        .user-info {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .logout-link {
-            color: #dc3545;
-            /* Merah untuk logout */
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .logout-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
-
     <div class="d-flex" id="wrapper">
         <?php include_once '../Component/Sidebar.php'; ?>
         <div id="page-content-wrapper">
@@ -96,6 +51,8 @@ include_once '../Component/StartCard.php';
                 <p>Ini adalah area konten utama Anda. Anda bisa menambahkan tabel, grafik, atau informasi lainnya di sini.</p>
                 <div class="row">
                     <?php
+
+                    // get data total from routes/IndexAdmin.php
                     statCard('Jumlah Kategori', $totalCategories);
                     statCard('Total Event', $totalEvents);
                     statCard('Admin Aktif', $totalAdmins);
@@ -113,5 +70,48 @@ include_once '../Component/StartCard.php';
 
 
 </body>
+
+
+<style>
+    /* Custom CSS untuk Sidebar dan Layout */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #f8f9fa;
+        /* Latar belakang halaman dashboard */
+    }
+
+    #wrapper {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* Top Navbar for toggle button */
+    .navbar-custom {
+        background-color: #ffffff;
+        /* Latar belakang navbar putih */
+        border-bottom: 1px solid #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        /* Jarak antara navbar dan konten */
+    }
+
+
+    .user-info {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .logout-link {
+        color: #dc3545;
+        /* Merah untuk logout */
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .logout-link:hover {
+        text-decoration: underline;
+    }
+</style>
 
 </html>

@@ -15,86 +15,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900&display=swap" rel="stylesheet" />
-
-    <style>
-        body {
-            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            color: #333;
-        }
-
-        h2 {
-            font-weight: 800;
-            font-size: 2rem;
-
-            background: linear-gradient(to right, rgb(19, 2, 176), rgb(0, 5, 153), rgb(1, 5, 80));
-
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-        }
-
-        .button-formal-navy {
-            /* Mengganti nama kelas untuk button */
-            padding: 12px;
-            background: #001f3f;
-            /* Warna Navy Solid */
-            border-radius: 15px;
-            color: white;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            box-shadow: 0 0 15px rgba(0, 31, 63, 0.4);
-            /* Shadow sesuai warna navy */
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .button-formal-navy:hover {
-            transform: scale(1.03);
-            /* Sedikit lebih kecil dari sebelumnya untuk kesan formal */
-            background-color: #003366;
-            /* Sedikit lebih terang saat hover */
-
-            color: white;
-        }
-
-        .form-control {
-            background-color: rgba(255, 255, 255, 0.8) !important;
-            color: #333 !important;
-            border: 1px solid #ccc;
-        }
-
-        .form-control::placeholder {
-            color: rgba(0, 0, 0, 0.5);
-        }
-
-        .input-group-text {
-            background-color: rgba(255, 255, 255, 0.8) !important;
-            border: 1px solid #ccc !important;
-            border-left: none !important;
-            color: #333 !important;
-        }
-
-        .form-control:focus {
-            box-shadow: 0 0 0 0.25rem rgba(0, 31, 63, 0.25);
-            /* Focus shadow disesuaikan dengan navy */
-            border-color: #001f3f;
-            /* Border focus warna navy */
-        }
-
-        .text-dark-50 {
-            color: rgba(0, 0, 0, 0.5) !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -133,5 +53,85 @@
         }
     </script>
 </body>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        color: #333;
+    }
+
+    h2 {
+        font-weight: 800;
+        font-size: 2rem;
+
+        background: linear-gradient(to right, rgb(19, 2, 176), rgb(0, 5, 153), rgb(1, 5, 80));
+
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+
+    .button-formal-navy {
+        /* Mengganti nama kelas untuk button */
+        padding: 12px;
+        background: #001f3f;
+        /* Warna Navy Solid */
+        border-radius: 15px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        box-shadow: 0 0 15px rgba(0, 31, 63, 0.4);
+        /* Shadow sesuai warna navy */
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button-formal-navy:hover {
+        transform: scale(1.03);
+        /* Sedikit lebih kecil dari sebelumnya untuk kesan formal */
+        background-color: #003366;
+        /* Sedikit lebih terang saat hover */
+
+        color: white;
+    }
+
+    .form-control {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        color: #333 !important;
+        border: 1px solid #ccc;
+    }
+
+    .form-control::placeholder {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .input-group-text {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        border: 1px solid #ccc !important;
+        border-left: none !important;
+        color: #333 !important;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.25rem rgba(0, 31, 63, 0.25);
+        /* Focus shadow disesuaikan dengan navy */
+        border-color: #001f3f;
+        /* Border focus warna navy */
+    }
+
+    .text-dark-50 {
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+</style>
 
 </html>

@@ -22,11 +22,6 @@ class AuthController
         $instansi = filter_input(INPUT_POST, 'instansi', FILTER_UNSAFE_RAW);
         $password = filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW);
 
-        if ($email === false) {
-            echo "<script>alert('Email tidak valid!'); window.location.href='/src/views/register.php';</script>";
-            exit();
-        }
-
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         $result = $this->penggunaModel->findByEmail($email);
@@ -67,17 +62,21 @@ class AuthController
                     'email' => $user['email_pengguna'],
                     'instansi' => $user['instansi_pengguna'],
                 ];
+
+                // Redirect ke halaman utama
                 header('Location: /');
                 exit;
             } else {
-                $error = "Email atau password salah";
+                echo "<script>alert('Email atau Password salah!');</script>";
             }
         } else {
-            $error = "Email atau password salah";
+            echo "<script>alert('Email atau Password salah!');</script>";
         }
         include('../views/login.php');
     }
 
+
+    // Method Logout
     public function logout()
     {
         session_destroy();
